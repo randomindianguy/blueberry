@@ -1142,8 +1142,9 @@ export default function App() {
               marginBottom: "40px",
               maxWidth: "680px",
             }}>
-              4 years of B2B product management. Same pattern each time: product works but
-              GTM can't convert consistently. Talk to customers, find what predicts success, write it down
+              I'm looking for a summer GTM internship. 4 years of B2B product management,
+              same pattern each time: product works but GTM can't convert consistently.
+              Talk to customers, find what predicts success, write it down
               so it works without the founders in the room.
             </p>
             <div className="grid-parallels" style={{
@@ -1187,7 +1188,7 @@ export default function App() {
             }}>
               Built from what's publicly visible.{" "}
               <span style={{ color: COLORS.textMuted }}>
-                Imagine what I build with two months inside the building.
+                Imagine what I build with a summer inside the building.
               </span>
             </div>
             <div style={{
@@ -1203,7 +1204,10 @@ export default function App() {
                 · MS Engineering Management, Purdue University (May 2027)
               </span>
               <span>
-                4 years B2B product management · Authorized to work via CPT (standard cooperation letter, no sponsorship)
+                4 years B2B product management · Looking for a summer 2026 GTM internship
+              </span>
+              <span>
+                Authorized to work via CPT (standard cooperation letter, no sponsorship)
               </span>
               <div style={{ display: "flex", gap: "16px", marginTop: "8px" }}>
                 <a href="https://linkedin.com/in/sidharthsundaram" target="_blank" rel="noopener noreferrer"
