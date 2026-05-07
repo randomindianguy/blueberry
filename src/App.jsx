@@ -13,8 +13,8 @@ const C = {
   amber: "#FBBF24",
   amberDim: "rgba(251, 191, 36, 0.12)",
   text: "#E8E8EE",
-  muted: "#9898AA",
-  dim: "#6B6B7B",
+  muted: "#B0B0BE",
+  dim: "#8585A0",
 };
 
 function Expand({ title, children }) {
@@ -124,7 +124,7 @@ export default function App() {
         }}>
           I looked at Blueberry's public GTM surface{" "}
           <span style={{ color: C.muted }}>
-            and found three things worth investigating.
+            and found something worth investigating.
           </span>
         </h1>
 
@@ -136,8 +136,8 @@ export default function App() {
           maxWidth: "620px",
         }}>
           I don't know what Blueberry looks like from the inside. What follows is built
-          entirely from public sources. Some of it might be wrong. But if even one of these
-          is a real problem, I'd like to be the person who works on it this summer.
+          entirely from public sources. Some of it might be wrong. But if this is a real problem,
+          I'd like to be the person who works on it this summer.
         </p>
 
         <div style={{
@@ -188,7 +188,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Argument 2: What I'd do */}
+          {/* Argument 2: The diagnostic question */}
           <div style={{
             background: C.card,
             border: `1px solid ${C.border}`,
@@ -201,27 +201,65 @@ export default function App() {
               color: C.accent,
               letterSpacing: "0.06em",
               marginBottom: "10px",
-            }}>WHAT I'D INVESTIGATE</div>
+            }}>THE FIRST QUESTION I'D ASK</div>
             <div style={{ fontSize: "16px", fontWeight: 600, marginBottom: "12px" }}>
-              Three things I'd want to test with access to real data.
+              Which of your current brands would be "very disappointed" if Blueberry went away?
+              And what do those brands have in common?
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-              <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6 }}>
-                <strong style={{ color: C.text }}>Month 1 — What predicts fast revenue?</strong>{" "}
-                I'd interview 3–5 current brands, sorted by where they stalled: stuck in configure, DMs sent but no sales, or converted once and stopped.
-                Each failure type would surface different problems. I'd start tracking days-to-first-sale across all brands to see if a pattern exists.
+            <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6, marginBottom: "16px" }}>
+              That answer determines everything else. Three possible outcomes:
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <div style={{
+                padding: "12px 16px",
+                border: `1px solid ${C.border}`,
+                borderRadius: "6px",
+              }}>
+                <div style={{ fontSize: "14px", color: C.text, fontWeight: 600, marginBottom: "4px" }}>
+                  If only Impact-like brands love you
+                </div>
+                <div style={{ fontSize: "13px", color: C.muted, lineHeight: 1.5 }}>
+                  The ICP is clear but narrow: impulse-purchase, high-engagement DTC. The job becomes
+                  finding 10 more brands that look like Impact and producing case studies from that segment.
+                </div>
               </div>
-              <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6 }}>
-                <strong style={{ color: C.text }}>Month 2 — What's actually driving onboarding success?</strong>{" "}
-                From outside, it looks like founders are heavily involved in onboarding via Slack. If that's true,
-                I'd figure out which parts of that involvement actually drive first sales vs. which are just being helpful.
-                The high-leverage parts become a repeatable sequence. I'd also draft outbound targeting brands that have outgrown ManyChat.
+              <div style={{
+                padding: "12px 16px",
+                border: `1px solid ${C.border}`,
+                borderRadius: "6px",
+              }}>
+                <div style={{ fontSize: "14px", color: C.text, fontWeight: 600, marginBottom: "4px" }}>
+                  If brands across multiple categories love you
+                </div>
+                <div style={{ fontSize: "13px", color: C.muted, lineHeight: 1.5 }}>
+                  The segmentation thesis is wrong in a good way. The product works broadly.
+                  The job becomes producing proof from each category and figuring out why
+                  some brands in each category stall while others don't.
+                </div>
               </div>
-              <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6 }}>
-                <strong style={{ color: C.text }}>Month 3 — Produce new proof.</strong>{" "}
-                Get 1–2 case studies from categories that aren't pet accessories. Compare onboarding time
-                with whatever playbook exists by then vs. without. Hand off a documented system.
+              <div style={{
+                padding: "12px 16px",
+                border: `1px solid ${C.border}`,
+                borderRadius: "6px",
+              }}>
+                <div style={{ fontSize: "14px", color: C.text, fontWeight: 600, marginBottom: "4px" }}>
+                  If nobody would be very disappointed
+                </div>
+                <div style={{ fontSize: "13px", color: C.muted, lineHeight: 1.5 }}>
+                  Then the issue isn't GTM. It's product. I'd say so, shift the work
+                  to user research feeding the product team, and figure out what's missing.
+                </div>
               </div>
+            </div>
+            <div style={{
+              marginTop: "16px",
+              fontSize: "13px",
+              color: C.dim,
+              lineHeight: 1.6,
+              fontStyle: "italic",
+            }}>
+              Months 2–3 depend on the answer to month 1. Anyone who gives you a 90-day plan
+              before doing the diagnostic is guessing. The detailed plan for each path is in the appendix.
             </div>
           </div>
 
@@ -238,26 +276,29 @@ export default function App() {
               color: C.accent,
               letterSpacing: "0.06em",
               marginBottom: "10px",
-            }}>WHY I CAN DO THIS</div>
-            <div style={{ fontSize: "16px", fontWeight: 600, marginBottom: "12px" }}>
-              I've done this exact job twice. Both times, the pattern was the same.
+            }}>I'VE RUN THIS DIAGNOSTIC BEFORE</div>
+            <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6, marginBottom: "14px" }}>
+              <strong style={{ color: C.text }}>Found the right customers when we had zero to start with.</strong>{" "}
+              Interview Kickstart wanted to sell B2B corporate training. We had no customers and no idea
+              who'd buy. I talked to a bunch of companies and found one segment where the pitch was easy:
+              IT services companies, because their engineers get interviewed by clients before contracts are signed.
+              Upskilling wasn't a nice-to-have — it directly helped them win revenue. Focused there.
+              3 enterprise clients, 14% above target, 4.6/5 satisfaction.
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-              <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6 }}>
-                <strong style={{ color: C.text }}>Diagnosed why some customers convert and others don't.</strong>{" "}
-                Sales couldn't close blockchain curriculum at universities. I interviewed 10+ experts in 3 days,
-                found the gap (built for professionals, not students), rebuilt the offering. 6 partnerships closed.
-              </div>
-              <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6 }}>
-                <strong style={{ color: C.text }}>Built systems that replaced founder time.</strong>{" "}
-                AI course had strong demand but weak conversion. Sales reps couldn't confidently explain the courses.
-                I built expert videos so instructors did the convincing instead of reps. 14% conversion lift, $200K revenue.
-              </div>
-              <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6 }}>
-                <strong style={{ color: C.text }}>Found the right customers from scratch.</strong>{" "}
-                Built Interview Kickstart's first B2B product. Found the segment where the learner's incentive
-                and the company's business need were the same thing. 3 enterprise clients, 14% above revenue target.
-              </div>
+            <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6, marginBottom: "14px" }}>
+              <strong style={{ color: C.text }}>Made the sales process work without the best person in the room.</strong>{" "}
+              Our AI courses had strong demand but people weren't buying. Turned out sales reps
+              couldn't explain the courses confidently enough, and when someone's spending real money
+              on education, that hesitation kills the deal. So I got the instructors to record short videos
+              explaining what you'd actually learn, and put those in the follow-up emails.
+              14% more people bought. $200K in revenue.
+            </div>
+            <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6 }}>
+              <strong style={{ color: C.text }}>Killed my own thesis when it wasn't working.</strong>{" "}
+              Built a real-time coaching tool for TikTok creators who freeze on camera. Tested it.
+              Reactions were lukewarm. Instead of tweaking the UI, I went back to the users and realized
+              the real problem was 30 seconds before recording — they hadn't organized their thoughts yet.
+              Threw away V1 and rebuilt around pre-recording prep. V2 worked.
             </div>
           </div>
         </div>
@@ -394,9 +435,46 @@ export default function App() {
             </div>
           </Expand>
 
+          <Expand title="What I'd do in each scenario (month-by-month)">
+            <div style={{ marginBottom: "16px" }}>
+              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: C.accent, marginBottom: "8px" }}>MONTH 1 — SAME IN ALL SCENARIOS</div>
+              <div style={{ fontSize: "12px", color: C.muted, lineHeight: 1.5 }}>
+                Survey existing brands on satisfaction. Interview 3–5, sorted by where they stalled (stuck in configure, DMs sent but no sales, converted once and stopped).
+                Start tracking days-to-first-sale. Profile the brands that love Blueberry vs. the ones that don't. The answer shapes months 2–3.
+              </div>
+            </div>
+            <div style={{ marginBottom: "16px" }}>
+              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: C.amber, marginBottom: "8px" }}>IF ONLY IMPACT-LIKE BRANDS LOVE YOU</div>
+              <div style={{ fontSize: "12px", color: C.muted, lineHeight: 1.5, marginBottom: "6px" }}>
+                Month 2: Build qualification criteria from Impact's profile. Draft outbound targeting brands that match (impulse DTC, high engagement, ManyChat users hitting the ceiling).
+              </div>
+              <div style={{ fontSize: "12px", color: C.muted, lineHeight: 1.5 }}>
+                Month 3: Onboard 2–3 new Impact-like brands using the criteria. Produce case studies. Quantify whether the criteria predicted fast revenue.
+              </div>
+            </div>
+            <div style={{ marginBottom: "16px" }}>
+              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: C.green, marginBottom: "8px" }}>IF MULTIPLE CATEGORIES LOVE YOU</div>
+              <div style={{ fontSize: "12px", color: C.muted, lineHeight: 1.5, marginBottom: "6px" }}>
+                Month 2: Figure out what the successful brands across categories share (might be engagement volume, not product type). Build onboarding playbook from what founders do in Slack for these brands.
+              </div>
+              <div style={{ fontSize: "12px", color: C.muted, lineHeight: 1.5 }}>
+                Month 3: Produce case studies from 2–3 different categories. The positioning shifts from "works for DTC pet brands" to "works for X type of brand across categories."
+              </div>
+            </div>
+            <div style={{ marginBottom: "16px" }}>
+              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", color: C.red, marginBottom: "8px" }}>IF NOBODY WOULD BE VERY DISAPPOINTED</div>
+              <div style={{ fontSize: "12px", color: C.muted, lineHeight: 1.5, marginBottom: "6px" }}>
+                Month 2: Shift to user research. Interview brands about what's missing. Feed findings to the product team. Figure out whether the gap is in the AI quality, the attribution, the onboarding, or something else.
+              </div>
+              <div style={{ fontSize: "12px", color: C.muted, lineHeight: 1.5 }}>
+                Month 3: Document the product gaps with evidence. Recommend whether to fix the product for current segments or find a different segment entirely.
+              </div>
+            </div>
+          </Expand>
+
           <Expand title="What this looks like at scale (FT scope)">
             <div style={{ fontSize: "13px", color: C.dim, lineHeight: 1.5, marginBottom: "12px" }}>
-              The 3-month intern plan is above. Here's what the work grows into if it works.
+              If the summer works, here's what the role grows into.
             </div>
             {[
               "Know which brands are thriving vs. coasting (and track transitions)",
