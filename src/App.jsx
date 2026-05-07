@@ -122,9 +122,9 @@ export default function App() {
           lineHeight: 1.2,
           marginBottom: "24px",
         }}>
-          I looked at Blueberry's public GTM surface{" "}
+          I audited every brand on Blueberry's homepage{" "}
           <span style={{ color: C.muted }}>
-            and found something worth investigating.
+            and made a prediction about which ones love you most.
           </span>
         </h1>
 
@@ -135,9 +135,9 @@ export default function App() {
           marginBottom: "48px",
           maxWidth: "620px",
         }}>
-          I don't know what Blueberry looks like from the inside. What follows is built
-          entirely from public sources. Some of it might be wrong. But if this is a real problem,
-          I'd like to be the person who works on it this summer.
+          Public Instagram data, Shopify stores, and DM triggers — all checked this week.
+          The scorecard is below. You can verify it against your internal data in about 10 seconds.
+          If my prediction is close, I'd like to be the person who investigates why this summer.
         </p>
 
         <div style={{
@@ -157,7 +157,7 @@ export default function App() {
         {/* ===== THREE ARGUMENTS ===== */}
         <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginBottom: "48px" }}>
 
-          {/* Argument 1: What's about to break */}
+          {/* Argument 1: The brand audit — real data, real prediction */}
           <div style={{
             background: C.card,
             border: `1px solid ${C.border}`,
@@ -170,21 +170,131 @@ export default function App() {
               color: C.accent,
               letterSpacing: "0.06em",
               marginBottom: "10px",
-            }}>WHAT I NOTICED</div>
+            }}>WHAT I FOUND</div>
             <div style={{ fontSize: "16px", fontWeight: 600, marginBottom: "8px" }}>
-              Blueberry's revenue proof comes from one brand category.
+              I looked up every brand on your homepage. Here's what's visible from outside.
             </div>
-            <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6, marginBottom: "14px" }}>
-              Impact Dog Crates: 10× ROI, impulse-purchase pet accessories, $48–$79 ARPU.
-              The six other logos on the homepage have no published revenue numbers.
-              immi has 100% comment coverage but hasn't activated DM conversion yet.
-              Mellow, alice, Chaos Audio, OpusClip — logo only.
+            <div style={{ fontSize: "13px", color: C.dim, lineHeight: 1.5, marginBottom: "16px" }}>
+              Public Instagram data + Shopify stores, checked this week. Some of this might be wrong. That's the point — you can verify in 10 seconds.
             </div>
-            <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6 }}>
-              That might be intentional — you might be waiting to publish until numbers are bigger.
-              But from the outside, every sales conversation with a brand that isn't impulse-purchase
-              pet accessories has to overcome the question: "will this work for us?"
-              Each new category with a revenue case study makes that conversation easier.
+
+            {/* Scorecard */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "20px" }}>
+              {[
+                {
+                  brand: "Impact Dog Crates",
+                  ig: "188K",
+                  posts: "4,929",
+                  arpu: "$200–$800",
+                  cat: "Pet accessories",
+                  dm: false,
+                  prediction: "Loves Blueberry",
+                  predColor: C.green,
+                  predBg: C.greenDim,
+                  note: "Only brand with published revenue. Posts constantly. Switched from ManyChat.",
+                },
+                {
+                  brand: "immi",
+                  ig: "226K",
+                  posts: "925",
+                  arpu: "$10–$30",
+                  cat: "Healthy ramen",
+                  dm: true,
+                  dmText: "\"DM us RAMEN for info\"",
+                  prediction: "Probably loves it",
+                  predColor: C.green,
+                  predBg: C.greenDim,
+                  note: "Active DM automation in bio. High followers. Low ARPU but repeat-purchase consumable.",
+                },
+                {
+                  brand: "Mellow Sleep",
+                  ig: "59K",
+                  posts: "119",
+                  arpu: "$29–$99",
+                  cat: "Pillows & bedding",
+                  dm: true,
+                  dmText: "\"DM us MELLOW for a special offer\"",
+                  prediction: "Could go either way",
+                  predColor: C.amber,
+                  predBg: C.amberDim,
+                  note: "Active DM automation. But only 119 posts = very few conversation surfaces for the AI. Not a mattress company — products are impulse-friendly.",
+                },
+                {
+                  brand: "alice mushrooms",
+                  ig: "119K",
+                  posts: "351",
+                  arpu: "$30–$60",
+                  cat: "Functional mushroom supplements",
+                  dm: false,
+                  prediction: "Platform risk",
+                  predColor: C.red,
+                  predBg: C.redDim,
+                  note: "Instagram has taken down their account 10+ times. Meta flags mushroom brands as potential psychedelic violations. Hard to run DM automation when your account keeps disappearing.",
+                },
+                {
+                  brand: "Chaos Audio",
+                  ig: "19K",
+                  posts: "598",
+                  arpu: "$379",
+                  cat: "Guitar pedals",
+                  dm: false,
+                  prediction: "Probably not",
+                  predColor: C.red,
+                  predBg: C.redDim,
+                  note: "Tiny audience. Niche hobby. $379 is a considered purchase — a DM with a discount probably doesn't close this.",
+                },
+                {
+                  brand: "OpusClip",
+                  ig: "134K",
+                  posts: "278",
+                  arpu: "SaaS sub",
+                  cat: "AI video clipping for creators",
+                  dm: false,
+                  prediction: "Different motion",
+                  predColor: C.amber,
+                  predBg: C.amberDim,
+                  note: "B2C creator tool with 16M+ users, not a DTC product brand. No Shopify catalog to connect. A DM with a discount works differently for a software subscription than for a physical product.",
+                },
+              ].map((b, i) => (
+                <div key={i} style={{
+                  padding: "14px 16px",
+                  border: `1px solid ${C.border}`,
+                  borderRadius: "6px",
+                }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
+                    <div>
+                      <span style={{ fontSize: "14px", fontWeight: 600, color: C.text }}>{b.brand}</span>
+                      <span style={{ fontSize: "12px", color: C.dim, marginLeft: "8px" }}>{b.cat}</span>
+                    </div>
+                    <Tag color={b.predColor} bg={b.predBg}>{b.prediction}</Tag>
+                  </div>
+                  <div style={{ display: "flex", gap: "16px", marginBottom: "8px", flexWrap: "wrap" }}>
+                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: C.dim }}>IG: {b.ig}</span>
+                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: C.dim }}>Posts: {b.posts}</span>
+                    <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: C.dim }}>ARPU: {b.arpu}</span>
+                    {b.dm && <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "11px", color: C.accent }}>DM trigger active</span>}
+                  </div>
+                  {b.dm && b.dmText && (
+                    <div style={{ fontSize: "12px", color: C.accent, marginBottom: "6px" }}>
+                      Bio: {b.dmText}
+                    </div>
+                  )}
+                  <div style={{ fontSize: "12px", color: C.muted, lineHeight: 1.5 }}>{b.note}</div>
+                </div>
+              ))}
+            </div>
+
+            <div style={{
+              padding: "14px 18px",
+              borderLeft: `3px solid ${C.accent}`,
+              background: C.accentGlow,
+              borderRadius: "0 6px 6px 0",
+              fontSize: "13px",
+              color: C.text,
+              lineHeight: 1.6,
+            }}>
+              <strong>My prediction:</strong> Impact and immi are your strongest brands. Mellow could be — but 119 posts means the AI doesn't get many at-bats. alice has a real platform risk problem. Chaos Audio is too niche. OpusClip is a creator SaaS tool, not a DTC product brand — the DM-to-purchase motion is fundamentally different there.
+              You can check this against your internal data in about 10 seconds.
             </div>
           </div>
 
@@ -201,13 +311,14 @@ export default function App() {
               color: C.accent,
               letterSpacing: "0.06em",
               marginBottom: "10px",
-            }}>THE FIRST QUESTION I'D ASK</div>
+            }}>THE QUESTION THAT CONFIRMS OR DISPROVES THIS</div>
             <div style={{ fontSize: "16px", fontWeight: 600, marginBottom: "12px" }}>
               Which of your current brands would be "very disappointed" if Blueberry went away?
-              And what do those brands have in common?
             </div>
             <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6, marginBottom: "16px" }}>
-              That answer determines everything else. Three possible outcomes:
+              My prediction above is built from public data. The real answer is in your usage and churn numbers.
+              If I'm right that Impact and immi are your strongest, the question becomes: what do they share that
+              Chaos Audio and alice don't? That answer shapes everything else:
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               <div style={{
@@ -487,37 +598,21 @@ export default function App() {
             ))}
           </Expand>
 
-          <Expand title="Evidence map — all seven brands">
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              {[
-                { brand: "Impact Dog Crates", cat: "Pet accessories · 280K", proof: "strong", detail: "10× ROI in two weeks. Switched from ManyChat." },
-                { brand: "immi", cat: "Healthy ramen · 300K", proof: "partial", detail: "100% comment coverage. Hasn't activated DM conversion yet." },
-                { brand: "Mellow", cat: "Sleep / mattresses", proof: "none", detail: null },
-                { brand: "alice", cat: "Beauty / wellness", proof: "none", detail: null },
-                { brand: "Chaos Audio", cat: "Guitar pedals", proof: "none", detail: null },
-                { brand: "OpusClip", cat: "AI video software", proof: "none", detail: null },
-                { brand: "[unidentified]", cat: "Unknown", proof: "none", detail: null },
-              ].map((b, i) => {
-                const colors = {
-                  strong: { c: C.green, bg: C.greenDim, l: "Revenue proof" },
-                  partial: { c: C.amber, bg: C.amberDim, l: "Engagement only" },
-                  none: { c: C.red, bg: C.redDim, l: "Logo only" },
-                };
-                const p = colors[b.proof];
-                return (
-                  <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "6px 0", borderBottom: i < 6 ? `1px solid ${C.border}` : "none" }}>
-                    <div>
-                      <span style={{ fontSize: "13px", color: C.text, fontWeight: 600 }}>{b.brand}</span>
-                      <span style={{ fontSize: "11px", color: C.dim, marginLeft: "8px" }}>{b.cat}</span>
-                      {b.detail && <div style={{ fontSize: "11px", color: C.muted, marginTop: "2px" }}>{b.detail}</div>}
-                    </div>
-                    <Tag color={p.c} bg={p.bg}>{p.l}</Tag>
-                  </div>
-                );
-              })}
+          <Expand title="Full evidence map with sources">
+            <p style={{ fontSize: "12px", color: C.dim, lineHeight: 1.5, marginBottom: "12px" }}>
+              All data from public Instagram profiles and Shopify stores, checked week of May 5, 2026.
+              "$2M+ revenue attributed in &lt;2 months" is the aggregate claim on the homepage — no methodology shown.
+            </p>
+            <div style={{ fontSize: "12px", color: C.muted, lineHeight: 1.6 }}>
+              <strong style={{ color: C.text }}>Key correction from this audit:</strong> Mellow is not a mattress company.
+              It sells pillows ($49), comforters ($99), and bedding accessories ($20–$44). This changes the ARPU calculation —
+              Mellow's products are impulse-friendly, not considered purchases.
             </div>
-            <div style={{ marginTop: "12px", fontSize: "12px", color: C.muted, lineHeight: 1.5 }}>
-              "$2M+ revenue attributed in &lt;2 months." No methodology shown. Could be concentrated in Impact, could be spread. The number is probably real. The distribution is unknown.
+            <div style={{ marginTop: "10px", fontSize: "12px", color: C.muted, lineHeight: 1.6 }}>
+              <strong style={{ color: C.text }}>Unexpected finding:</strong> alice mushrooms has had their Instagram account
+              taken down by Meta 10+ times for alleged community guidelines violations around mushroom content.
+              The brand sells functional (non-psychoactive) mushroom supplements, but Meta's automated systems
+              flag mushroom brands broadly. Any DM automation strategy for alice operates under this platform risk.
             </div>
           </Expand>
 
@@ -535,9 +630,9 @@ export default function App() {
             color: C.text,
             lineHeight: 1.4,
           }}>
-            Built from what's publicly visible.{" "}
+            Built from public data and a few days of research.{" "}
             <span style={{ color: C.muted }}>
-              Imagine what I build with a summer inside the building.
+              Imagine what I find with a summer inside the building.
             </span>
           </div>
         </div>
