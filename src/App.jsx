@@ -122,9 +122,9 @@ export default function App() {
           lineHeight: 1.2,
           marginBottom: "24px",
         }}>
-          I audited every brand on Blueberry's homepage{" "}
+          I spent a week looking at Blueberry{" "}
           <span style={{ color: C.muted }}>
-            and made a prediction about which ones love you most.
+            the way your customers see it.
           </span>
         </h1>
 
@@ -135,9 +135,10 @@ export default function App() {
           marginBottom: "48px",
           maxWidth: "620px",
         }}>
-          Public Instagram data, Shopify stores, and DM triggers — all checked this week.
-          The scorecard is below. You can verify it against your internal data in about 10 seconds.
-          If my prediction is close, I'd like to be the person who investigates why this summer.
+          I audited every brand on your homepage. Checked their Instagram, their Shopify stores,
+          their DM triggers. Then I DM'd two of them myself to see what a customer actually receives.
+          This is the kind of outside-in investigation that's hard to do when you're also
+          running pipeline, demos, and onboarding. I'd like to do it full-time this summer.
         </p>
 
         <div style={{
@@ -183,8 +184,8 @@ export default function App() {
               {[
                 {
                   brand: "Impact Dog Crates",
-                  ig: "188K",
-                  posts: "4,929",
+                  ig: "187K",
+                  posts: "4,931",
                   arpu: "$200–$800",
                   cat: "Pet accessories",
                   dm: false,
@@ -195,8 +196,8 @@ export default function App() {
                 },
                 {
                   brand: "immi",
-                  ig: "226K",
-                  posts: "925",
+                  ig: "225K",
+                  posts: "928",
                   arpu: "$10–$30",
                   cat: "Healthy ramen",
                   dm: true,
@@ -204,27 +205,27 @@ export default function App() {
                   prediction: "Probably loves it",
                   predColor: C.green,
                   predBg: C.greenDim,
-                  note: "Active DM automation in bio. High followers. Low ARPU but repeat-purchase consumable.",
+                  note: "Active DM automation with brry.io attribution tracking. DM'd \"RAMEN\" and received a personalized response with product card and tracked purchase link within 60 seconds.",
                 },
                 {
                   brand: "Mellow Sleep",
-                  ig: "59K",
-                  posts: "119",
+                  ig: "60.7K",
+                  posts: "121",
                   arpu: "$29–$99",
                   cat: "Pillows & bedding",
                   dm: true,
-                  dmText: "\"DM us MELLOW for a special offer\"",
-                  prediction: "Could go either way",
-                  predColor: C.amber,
-                  predBg: C.amberDim,
-                  note: "Active DM automation. But only 119 posts = very few conversation surfaces for the AI. Not a mattress company — products are impulse-friendly.",
+                  dmText: "\"DM us MOM for a special offer\"",
+                  prediction: "Probably loves it",
+                  predColor: C.green,
+                  predBg: C.greenDim,
+                  note: "Active DM automation with brry.io attribution tracking. Running a Mother's Day campaign with discount code LOVEMOM via Blueberry. Only 121 posts though — fewer conversation surfaces than Impact or immi.",
                 },
                 {
                   brand: "alice mushrooms",
-                  ig: "119K",
-                  posts: "351",
+                  ig: "120K",
+                  posts: "361",
                   arpu: "$30–$60",
-                  cat: "Functional mushroom supplements",
+                  cat: "Vitamins & supplements",
                   dm: false,
                   prediction: "Platform risk",
                   predColor: C.red,
@@ -233,8 +234,8 @@ export default function App() {
                 },
                 {
                   brand: "Chaos Audio",
-                  ig: "19K",
-                  posts: "598",
+                  ig: "18.9K",
+                  posts: "602",
                   arpu: "$379",
                   cat: "Guitar pedals",
                   dm: false,
@@ -293,8 +294,73 @@ export default function App() {
               color: C.text,
               lineHeight: 1.6,
             }}>
-              <strong>My prediction:</strong> Impact and immi are your strongest brands. Mellow could be — but 119 posts means the AI doesn't get many at-bats. alice has a real platform risk problem. Chaos Audio is too niche. OpusClip is a creator SaaS tool, not a DTC product brand — the DM-to-purchase motion is fundamentally different there.
+              <strong>My prediction:</strong> Impact, immi, and Mellow are your strongest brands — I DM'd "RAMEN" and "MOM" to immi and Mellow this week and both responded with personalized Blueberry DMs via brry.io tracking links. alice has a real platform risk problem. Chaos Audio is too niche. OpusClip is a creator SaaS tool, not a DTC product brand — the DM-to-purchase motion is fundamentally different there.
               You can check this against your internal data in about 10 seconds.
+            </div>
+          </div>
+
+          {/* Evidence: DM screenshots */}
+          <div style={{
+            background: C.card,
+            border: `1px solid ${C.border}`,
+            borderRadius: "8px",
+            padding: "24px",
+          }}>
+            <div style={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: "11px",
+              color: C.accent,
+              letterSpacing: "0.06em",
+              marginBottom: "10px",
+            }}>WHAT I GOT BACK</div>
+            <div style={{ fontSize: "16px", fontWeight: 600, marginBottom: "8px" }}>
+              I DM'd two of your brands as a stranger. Both responded in under 60 seconds.
+            </div>
+            <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6, marginBottom: "20px" }}>
+              brry.io tracking links, personalized messages with my name, product cards with specific recommendations.
+              This is what your product looks like from the customer side. It works.
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+              <div>
+                <div style={{
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: "11px",
+                  color: C.dim,
+                  marginBottom: "8px",
+                }}>SENT "RAMEN" TO @IMMIEATS</div>
+                <img
+                  src="/evidence/immi-dm.png"
+                  alt="immi Blueberry DM response"
+                  style={{
+                    width: "100%",
+                    borderRadius: "8px",
+                    border: `1px solid ${C.border}`,
+                  }}
+                />
+                <div style={{ fontSize: "12px", color: C.muted, marginTop: "8px", lineHeight: 1.5 }}>
+                  "Hey Sid!" + Variety Vol. 1 product card + brry.io/immi-variety-pack?bb= tracking link
+                </div>
+              </div>
+              <div>
+                <div style={{
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: "11px",
+                  color: C.dim,
+                  marginBottom: "8px",
+                }}>SENT "MOM" TO @MELLOW.SLEEP</div>
+                <img
+                  src="/evidence/mellow-dm.png"
+                  alt="Mellow Blueberry DM response"
+                  style={{
+                    width: "100%",
+                    borderRadius: "8px",
+                    border: `1px solid ${C.border}`,
+                  }}
+                />
+                <div style={{ fontSize: "12px", color: C.muted, marginTop: "8px", lineHeight: 1.5 }}>
+                  "Hey Sid!" + Mother's Day offer (code LOVEMOM, 20% off) + brry.io/mellowsleep tracking link
+                </div>
+              </div>
             </div>
           </div>
 
@@ -316,8 +382,8 @@ export default function App() {
               Which of your current brands would be "very disappointed" if Blueberry went away?
             </div>
             <div style={{ fontSize: "14px", color: C.muted, lineHeight: 1.6, marginBottom: "16px" }}>
-              My prediction above is built from public data. The real answer is in your usage and churn numbers.
-              If I'm right that Impact and immi are your strongest, the question becomes: what do they share that
+              My prediction is built from public data and two DMs I sent myself. The real answer is in your usage and churn numbers.
+              If I'm right that Impact, immi, and Mellow are your strongest, the question becomes: what do they share that
               Chaos Audio and alice don't? That answer shapes everything else:
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
